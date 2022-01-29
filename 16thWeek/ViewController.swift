@@ -51,7 +51,9 @@ extension ViewController {
     
     @objc
     func tappedSaveButton() {
-        print("aloo")
+        let nextVC = NoteAddViewController()
+        nextVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
