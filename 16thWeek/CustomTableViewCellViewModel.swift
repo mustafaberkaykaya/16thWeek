@@ -8,7 +8,7 @@
 import Foundation
 
 struct CustomTableViewCellViewModel {
-    let title: String
+    var title: String
     
     init(with model: Note) {
         title = model.title

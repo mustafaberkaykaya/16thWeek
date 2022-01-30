@@ -12,11 +12,11 @@ enum Gender {
 }
 
 struct Note {
-    let title: String
-    let note: String?
-    let authorName: String?
-    let authorGender: Gender
-    let authorAdress: String?
+    var title: String
+    var note: String?
+    var authorName: String?
+    var authorGender: Gender
+    var authorAdress: String?
     
     init(title: String,
          note: String? = nil,

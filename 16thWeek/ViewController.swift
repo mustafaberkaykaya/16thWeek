@@ -12,6 +12,7 @@ import TinyConstraints
 class ViewController: UIViewController {
     
     private var models = [Note]()
+    var indexPathRow = Int()
     
     private let tableView = UITableViewBuilder().build()
     private let addNoteButton = UIButtonBuilder().title("Add Note").build()
@@ -52,7 +53,7 @@ extension ViewController {
     }
     
     private func configureModels() {
-        let titles = ["ataturk", "tayyıp", "web3", "kripto"]
+        let titles = ["ataturk", "", "web3", "kripto"]
         for title in titles {
             models.append(Note(title: title))
         }
@@ -81,3 +82,4 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
+

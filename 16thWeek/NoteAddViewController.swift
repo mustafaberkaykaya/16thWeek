@@ -22,12 +22,20 @@ class NoteAddViewController: UIViewController {
         .build()
     private let noteTextView = UITextViewBuilder().borderWidth(1).isEditable(true).isSelectable(true).build()
     private let saveButton = UIButtonBuilder().title("Save").build()
+    
+    weak var saveNoteDelegate: saveButtonTappedDelegate?
+    var titleText = ""
+    var noteText = ""
+    var isediting = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .yellow
         addSubViews()
+        
+        titleTextField.text = titleText
+        noteTextView.text = noteText
     }
 }
 
@@ -58,6 +66,30 @@ extension NoteAddViewController {
     
     private func addButton() {
         mainStackView.addArrangedSubview(saveButton)
+        saveButton.addTarget(self, action: #selector(tappedSaveButton), for: .touchUpInside)
+    }
+    
+    @objc
+    func tappedSaveButton() {
+        
+        if titleTextField.text!.isEmpty || noteTextView.text!.isEmpty {
+            let alert = UIAlertController(title: "Error",
+                                          message: "Please fill in the required sections",
+                                          preferredStyle: UIAlertController.Style.alert)
+            let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+            alert.addAction(okButton)
+           present(alert, animated: true, completion: nil)
+        } else {
+            if isEditing == false {
+                saveNoteDelegate?.didTapButton(title: titleTextField.text!, note: noteTextView.text!, isEditMode: false)
+                navigationController?.popViewController(animated: true)
+            } else {
+                saveNoteDelegate?.didTapButton(title: titleTextField.text!, note: noteTextView.text, isEditMode: true)
+                navigationController?.popViewController(animated: true)
+
+            }
+        }
+        
     }
     
 }
