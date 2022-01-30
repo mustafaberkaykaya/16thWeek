@@ -19,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     
         let viewController = ViewController()
         let window = UIWindow(windowScene: windowScene)
-        let nc = UINavigationController()
-        window.rootViewController = nc
+        let navigationController = UINavigationController()
+        window.rootViewController = navigationController
         window.rootViewController?.addChild(viewController)
                            
         viewController.view.backgroundColor = .white

@@ -77,11 +77,11 @@
 				6A6F034827A579E200F39947 /* AppDelegate.swift */,
 				6A6F034A27A579E200F39947 /* SceneDelegate.swift */,
 				6A6F034C27A579E200F39947 /* ViewController.swift */,
+				6AB8302827A5E8C70048348C /* NoteAddViewController.swift */,
 				6A6F035127A579E300F39947 /* Assets.xcassets */,
 				6A6F035327A579E300F39947 /* LaunchScreen.storyboard */,
 				6A6F035627A579E300F39947 /* Info.plist */,
 				6AB8302627A5E72F0048348C /* CustomTableViewCell.swift */,
-				6AB8302827A5E8C70048348C /* NoteAddViewController.swift */,
 			);
 			path = 16thWeek;
 			sourceTree = "<group>";

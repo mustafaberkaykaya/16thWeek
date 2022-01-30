@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
         addSubViews()
     }
 }
@@ -38,7 +38,6 @@ extension ViewController {
         tableView.trailingToSuperview()
         tableView.leadingToSuperview()
         tableView.bottomToSuperview().constant = -60
-        tableView.backgroundColor = .red
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
     }
     
