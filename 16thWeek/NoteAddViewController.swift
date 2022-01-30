@@ -9,6 +9,10 @@ import UIKit
 import MobilliumBuilders
 import TinyConstraints
 
+protocol saveButtonTappedDelegate: NSObjectProtocol {
+    func didTapButton(title: String, note: String, isEditMode: Bool)
+}
+
 class NoteAddViewController: UIViewController {
     
     private let mainStackView = UIStackViewBuilder().axis(.vertical).spacing(20).build()

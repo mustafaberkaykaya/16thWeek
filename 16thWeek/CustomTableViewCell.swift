@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import MobilliumBuilders
 
 class CustomTableViewCell: UITableViewCell {
     
     static let identifier = "CustomTableViewCell"
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
       
@@ -20,6 +21,10 @@ class CustomTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    func configure(with viewModel: CustomTableViewCellViewModel) {
+        textLabel?.text = viewModel.title
+    } 
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

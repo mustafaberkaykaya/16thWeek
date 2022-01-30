@@ -11,6 +11,8 @@ import TinyConstraints
 
 class ViewController: UIViewController {
     
+    private var models = [Note]()
+    
     private let tableView = UITableViewBuilder().build()
     private let addNoteButton = UIButtonBuilder().title("Add Note").build()
 
@@ -18,6 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
        
         addSubViews()
+        configureModels()
     }
 }
 
@@ -48,6 +51,13 @@ extension ViewController {
         addNoteButton.addTarget(self, action: #selector(tappedSaveButton), for: .touchUpInside)
     }
     
+    private func configureModels() {
+        let titles = ["ataturk", "tayyıp", "web3", "kripto"]
+        for title in titles {
+            models.append(Note(title: title))
+        }
+    }
+    
     @objc
     func tappedSaveButton() {
         let nextVC = NoteAddViewController()
@@ -59,12 +69,15 @@ extension ViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath)
-        cell.textLabel?.text = "dd"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else {
+            return UITableViewCell()
+        }
+       // cell.textLabel?.text = models[indexPath.row].title
+        cell.configure(with: CustomTableViewCellViewModel(with: models[indexPath.row]))
         return cell
     }
 }
