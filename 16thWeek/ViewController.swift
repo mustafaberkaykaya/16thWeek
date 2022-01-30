@@ -38,7 +38,7 @@ extension ViewController {
         tableView.trailingToSuperview()
         tableView.leadingToSuperview()
         tableView.bottomToSuperview().constant = -60
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
     }
     
     private func addButton() {
@@ -63,7 +63,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath)
         cell.textLabel?.text = "dd"
         return cell
     }
