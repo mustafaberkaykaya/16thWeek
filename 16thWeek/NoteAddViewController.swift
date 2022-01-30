@@ -71,7 +71,6 @@ extension NoteAddViewController {
     
     @objc
     func tappedSaveButton() {
-        
         if titleTextField.text!.isEmpty || noteTextView.text!.isEmpty {
             let alert = UIAlertController(title: "Error",
                                           message: "Please fill in the required sections",
@@ -86,10 +85,7 @@ extension NoteAddViewController {
             } else {
                 saveNoteDelegate?.didTapButton(title: titleTextField.text!, note: noteTextView.text, isEditMode: true)
                 navigationController?.popViewController(animated: true)
-
             }
         }
-        
     }
-    
 }

@@ -14,12 +14,10 @@ class CustomTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-      
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
     func configure(with viewModel: CustomTableViewCellViewModel) {
@@ -31,7 +29,6 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     // swiftlint:disable all
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

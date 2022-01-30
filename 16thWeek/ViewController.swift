@@ -30,7 +30,6 @@ extension ViewController {
     private func addSubViews() {
         addTableView()
         addButton()
-        
     }
         
     private func addTableView() {
@@ -53,7 +52,7 @@ extension ViewController {
     }
     
     private func configureModels() {
-        let titles = ["ataturk", "", "web3", "kripto"]
+        let titles = ["elma", "armut", "web3", "kripto"]
         for title in titles {
             models.append(Note(title: title))
         }
@@ -77,9 +76,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else {
             return UITableViewCell()
         }
-       // cell.textLabel?.text = models[indexPath.row].title
         cell.configure(with: CustomTableViewCellViewModel(with: models[indexPath.row]))
         return cell
     }
 }
-
